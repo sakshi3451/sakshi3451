@@ -1,27 +1,26 @@
-<script>
-// read number in the program 
-const num1 = parsefloat(prompt('enter nr1:')); // 20 >> '20'
-const num2 = parsefloat(prompt('enter nr2:')); // 'abc' , '' ,null 
-// read operator
-const operator = prompt ('enter operator(+,-,*,/));
-let reault = 0;
-if(isNaN(num1)||(isNaN(num2)){
-    alert('wrong input ! refresh the page again and provide data!');
-}
-else{
-    if (operator == '+' ){
-        result = num1+num2;
-    }
-    else if ( operator == '-'){
-        result = num1-num2;
-    }
-    else if ( operator =='*'){
-        result=num1*num2;
-    }
-    else if(operator == '/')
+// addition
+let a = parseInt(process.argv[2]);
+let b = parseInt(process.argv[3]);
+let c = a + b;
+console.log(c);
+console.log(type of c);
 
-    result= num1/num2;
-}
-document.write(num1+operator+num2+'='+result);
-}
-</script>
+// subtraction
+let a = parseInt(process.argv[6]);
+let b = parseInt(process.argv[4]);
+let c = a-b;
+console.log(c);
+console.log(type of c);
+
+// multiplication
+let a = parseInt(process.argv[8]);
+let b= parseInt(process.argv[2]);
+let c = a*b;
+console.log(c);
+console.log(type of c);
+
+// division
+let a = parseInt(process.argv[2]);
+let b = parseInt(process.argv[1]);
+let c = a/b;
+console.log(c);
