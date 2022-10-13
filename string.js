@@ -3,7 +3,7 @@ let str = ' i am from hyderabad';
  console.log(replace);
 
 // trim function
-let strWithWhitespaces='this contains     whitespaces' ;       whitspces ';
+let strWithWhitespaces='this contains     whitespaces' ;       
 console.log(strWithWhitespaces);
 console.log(strWithWhitespaces.trim());
 
