@@ -1,9 +1,9 @@
-let str = ' i am from hyderabad
+let str = ' i am from hyderabad';
  let replace = str.replace('hyderabad' , 'banglore'); // replaced
  console.log(replace);
 
 // trim function
-let strWithWhitespaces='this contains           whitspces ';
+let strWithWhitespaces='this contains     whitespaces' ;       whitspces ';
 console.log(strWithWhitespaces);
 console.log(strWithWhitespaces.trim());
 
