@@ -1,6 +1,6 @@
 // string
 let name = 'sakshi';
-console.log(name);
+console.log(name1);
 console.log(type of name); // return string
 
 
