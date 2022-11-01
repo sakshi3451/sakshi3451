@@ -61,3 +61,16 @@ catch(e){
 finally{
     console.log({result});
 }
+
+//6
+let add3= (x,y,z)=>x+y+z;
+let result3= 1;
+try{
+    result3 =(1,2,3);
+}
+catch(e){
+    console.log(e.message);
+}
+finally{
+    console.log({result3});
+}
