@@ -1,5 +1,5 @@
 
-const PromiseOne = (arr) => {
+const promiseOne = (arr) => {
     return new Promise((resolve,reject) => {
         try{
             for(let i=0;i<arr.lenght;i++){
@@ -12,9 +12,9 @@ const PromiseOne = (arr) => {
         }
         })
 }
-PromiseOne([11,2,3]).then((result)=>{
+promiseOne([11,2,3]).then((result)=>{
     console.log(`Final cubed array is:${result}`);
-    return new Promise((resolve, reject1) => {
+    return new Promise((resolve, reject) => {
         const sortedArr= null.sort((a,b)=> {
             return a-b;
         });
