@@ -1,0 +1,20 @@
+const {MongoClient}=require('mongpdb'); // imported the mongoClient
+const url = 'mongodb://localhost:27017';
+const client = new MongoClient(ur1);
+  
+const connection = async() => {
+    try{
+        await client.connection(); // wating until connection is established.
+        const collection = client.db('node-3').collection('student3');
+        await collection.insertOne({name:'sakshi',city:'sagar',course:'Nodejs'});
+        return Promise.resolve('Insertion Successful');
+    }
+    catch(err){
+        return Promise.reject(err);
+    }
+}
+connection().then((res)=>{
+    console.log(res);
+}).catch((error) =>{
+    console.log('connection failure');
+});
