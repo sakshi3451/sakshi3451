@@ -10,6 +10,7 @@ const mobileRouter=require('./routes/mobile');
 const shoesRouter=require('./routes/shoes');
 const dressesRouter=require('./routes/dresses');
 const booksRouter=require('./routes/books');
+const mongooperations =require('./routes/mongooperations');
 var app = express();
 
 // view engine setup
@@ -28,6 +29,7 @@ app.get('/mobile',mobileRouter);
 app.get('/shoes',shoesRouter);
 app.get('/dresses',dressesRouter);
 app.get('/books',booksRouter);
+app.get('/getdata',mongooperations);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
