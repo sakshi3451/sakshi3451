@@ -3,7 +3,7 @@ const collection = require( '../utils/mongoconnection').connection();
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/openForm', function(req, res, next) {
+router.get('/openForm',  function(req, res, next) {
   res.render('showForm');
 });
 

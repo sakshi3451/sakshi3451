@@ -1,0 +1,15 @@
+<form action="/updateNewData" method="PUT">
+    <!-- Creating the parameter Username as type= "text"-->
+    <label>Name: </label>
+    <input type="text"  placeholder=<%= dataTobeUpdated.name %> name="name"><br><br>
+
+    <!-- Creating the parameter Email as type= "text"-->
+    <label>City: </label>
+    <input type="text"  placeholder=<%= dataTobeUpdated.city %> name="city"><br><br>
+
+    <!-- Creating the submit button -->
+    <label>Course: </label>
+    <input type="text" placeholder=<%= dataTobeUpdated.course %> name="course"><br><br>
+
+    <button>Submit</button>
+</form>

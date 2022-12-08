@@ -12,7 +12,8 @@ const dressesRouter=require('./routes/dresses');
 const booksRouter=require('./routes/books');
 const mongooperations =require('./routes/mongooperations');
 const addData= require('./routes/addData.js');
-const updateData=require('./routes/updateData.js');
+const updateData= require('./routes/updateData.js')
+//const updateData=require('./routes/updateData.js');
 var app = express();
 
 // view engine setup
@@ -39,7 +40,8 @@ app.put('/updateData',mongooperations);
 app.delete('/deleteData',mongooperations);
 app.get('/openForm',addData);
 app.post('/addNewData',addData);
-app.get('/getDataToBeUpdated',updateData);
+app.put('/getDataToBeUpdated',updateData);
+//app.get('/getDataToBeUpdated',updateData);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
