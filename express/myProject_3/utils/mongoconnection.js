@@ -1,10 +1,10 @@
-const{ Mongoclient}= require('mongodb');
+const {MongoClient}= require('mongodb');
 const url = 'mongodb://localhost:27017';
-const client = new Mongoclient(url);
+const client = new MongoClient(url);
 const connection= async()=>{
     try{
         await client.connect();
-        const collection=client.db('node-3').collection('employee');
+        const collection=client.db('node-3').collection('employeedata');
         return Promise.resolve(collection);
     }
     catch(err){

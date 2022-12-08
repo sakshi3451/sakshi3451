@@ -1,29 +1,30 @@
 <style>
-    table , th, td{
-        border :1px solidnrgd(138,12,12);
-        border-collapse:collapse;
-
+    table, th, td {
+      border: 1px solid rgb(138, 12, 12);
+      border-collapse: collapse;
     }
-    th,td{
-        background-color:#96D4D4;
-
+    th, td {
+      background-color: #96D4D4;
     }
 </style>
+
+  <form method="GET" id="form" action="/getDataToBeUpdated">
+    
+
 <table>
     <tr>
-        <th> name</th>
-        <th>city</th>
-        <th>course</th>
-        <th>address</th>
+       <th>name</th>
+       <th>city</th>
+       <th>course</th>
     </tr>
-    <% for (let i =0; i < data.length; i++){ %>
-        <tr>
-            <td>style = "color:rgb(162,0,255)"> <%= data[i].name %> </td>
-            <td><%=data[i].name %</td>
-
-            <td><%=data[i].city %</td>
-            <td><%=data[i].address %</td>
-            </tr>
-            <% } %>
-            </table>
-</table>
+ 
+    <% for (let i = 0; i < data.length; i++) { %>
+     <tr>
+       <td style="color:rgb(162, 0, 255)"><%= data[i].name %></td>
+       <td><%= data[i].city %></td>
+       <td><%= data[i].course %></td>
+       <td><button name="update" value="<%= data[i].name %>">Update</button> </td>
+     </tr>    
+    <% } %>
+ </table>
+ <a href="/openForm">Add add New Data </a>
