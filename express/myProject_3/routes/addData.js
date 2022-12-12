@@ -13,6 +13,8 @@ router.post('/addNewData', async function(req, res, next) {
         const insertResult = await ( await collection) .insertOne(posteddata);
         const data = await ( await collection) .find().toArray();
         res.render('showdata',{data});
+      
+       
 }
 catch(err){
 res.status(500).send('some error in insertion');
