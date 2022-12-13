@@ -14,7 +14,7 @@ router.post('/updateNewData', async function(req, res, next) {
     console.log(postedData);
     console.log(postedData.college);
     try {
-        const updateResult = await (await collection).updateOne({name:postedData.name}, {$set:{city:postedData.city,course:postedData.course, }});
+        const updateResult = await (await collection).updateOne({name:postedData.name}, {$set:{city:postedData.city,course:postedData.course }});
         const data = await (await collection).find().toArray();
         res.render('showData', { data });
     }catch(err){

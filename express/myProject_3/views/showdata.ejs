@@ -8,7 +8,7 @@
     }
 </style>
 
-<form method="get" id="form" action="/getDataToBeUpdated"></form> 
+<form method="GET" id="form" action="/getDataToBeUpdated">
 
 <table>
   
@@ -23,8 +23,13 @@
        <td style="color:rgb(162, 0, 255)"><%= data[i].name %></td>
        <td><%= data[i].city %></td>
        <td><%= data[i].course %></td>
+       
        <td><button name="update" value="<%= data[i].name %>">Update</button> </td>
+       //<td><button name="delete" value="<%= data[i].name %>">Delete</button> </td>
+       //<td><a href="/deleteData?name=<%= data[i].name %>">Delete Entry </a> </td>
+       
      </tr>    
     <% } %>
  </table>
+ </form>
  <a href="/openForm">Add add New Data </a>
