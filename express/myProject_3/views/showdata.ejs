@@ -1,4 +1,10 @@
+
+<head>
+  <h1 >WELCOME BACK</h1>
+  </head>
 <style>
+
+
     table, th, td {
       border: 1px solid rgb(138, 12, 12);
       border-collapse: collapse;
@@ -9,13 +15,16 @@
 </style>
 
 <form method="GET" id="form" action="/getDataToBeUpdated">
-
-<table>
+  
+  <table>
   
     <tr>
-       <th>name</th>
+       <th style="color:hsl(234, 100%, 50%)">name</th>
        <th>city</th>
        <th>course</th>
+       <th>update</th>
+       <th style="color:#ff0015">delete</th>
+       
     </tr>
  
     <% for (let i = 0; i < data.length; i++) { %>
@@ -27,9 +36,12 @@
        <td><button name="update" value="<%= data[i].name %>">Update</button> </td>
        <td><button name="delete" value="<%= data[i].name %>">Delete</button> </td>
        <td><a href="/deleteData?name=<%= data[i].name %>">Delete Entry </a> </td>
-       
      </tr>    
     <% } %>
  </table>
  </form>
- <a href="/openForm">Add add New Data </a>
+ <a style="background-color:#47ff1e;"href="/openForm">Add New Data </a>
+ 
+ <a style="background-color:#47ff1e,blue,red,green,brown;"href="/registrationForm">registration for users </a>
+
+ <a style="background-color:hwb(126 12% 0%);"href="/login">login for users </a>

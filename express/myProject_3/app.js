@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const mobileRouter=require('./routes/mobile');
@@ -14,6 +15,18 @@ const mongooperations =require('./routes/mongooperations');
 const addData= require('./routes/addData.js');
 const updateData= require('./routes/updateData.js');
 const deleteData=require('./routes/deleteData');
+const registrationForm=require('./routes/registrationForm');
+const login=require('./routes/login');
+
+
+const bodyParser = require('body-parser');
+const { body, validationResult } = require('express-validator');
+  
+  
+
+
+
+
 var app = express();
 
 // view engine setup
@@ -43,6 +56,12 @@ app.post('/addNewData',addData);
 app.get('/getDataToBeUpdated',updateData);
 app.post('/updateNewData',updateData);
 app.get('/deleteData',deleteData);
+app.get('/registrationForm',registrationForm);
+app.post('/registrationForm',registrationForm);
+app.get('/login',login);
+app.post('/login',login);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
