@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var express = require('express');
 var router = express.Router();
 const collection = require('../utils/mongoConnection').connection();
@@ -18,3 +19,25 @@ router.get('/deleteData', async function(req, res, next) {
 });
 
 module.exports = router;
+=======
+var express = require('express');
+var router = express.Router();
+const collection = require('../utils/mongoConnection').connection();
+
+/* GET home page. */
+router.get('/deleteData', async function(req, res, next) {
+    const name= req.query.name;
+    try{
+    const deleteResult = await (await collection).deleteOne({name});
+    const data = await (await collection).find().toArray();
+    res.render('showData', { data });
+    
+    } catch(error){
+        console.error(err);
+        res.status(500).send('Some Error in Delete operation');
+    }
+  
+});
+
+module.exports = router;
+>>>>>>> 424fc9b60d2cb39363a641cb38d21c7626fe374b
