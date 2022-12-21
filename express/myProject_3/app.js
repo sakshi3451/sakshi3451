@@ -17,10 +17,10 @@ const updateData= require('./routes/updateData.js');
 const deleteData=require('./routes/deleteData');
 const registrationForm=require('./routes/registrationForm');
 const login=require('./routes/login');
-
-
-const bodyParser = require('body-parser');
-const { body, validationResult } = require('express-validator');
+const logout=require('./routes/logout');
+const signup=require('./routes/signup');
+//const bodyParser = require('body-parser');
+//const { body, validationResult } = require('express-validator');
   
   
 
@@ -60,7 +60,10 @@ app.get('/registrationForm',registrationForm);
 app.post('/registrationForm',registrationForm);
 app.get('/login',login);
 app.post('/login',login);
-
+app.get('/logout',logout);
+app.post('/logout',logout);
+app.get('/signup',signup);
+app.post('/signup',signup);
 
 
 // catch 404 and forward to error handler
