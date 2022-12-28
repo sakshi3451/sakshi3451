@@ -2,7 +2,10 @@ var express = require('express');
 const collection = require( '../utils/mongoconnection').connection();
 var router = express.Router();
 router.get ('/getData',async function(req,res,next){
-
+    res.cookie('SampleCookie', 'value is express');
+    res.cookie('cookie1','sakshi')
+    res.cookie('SampleCookie', 'value is express', {maxAge: 360000});
+    res.clearCookie('cookie1');
    //  res.send('test');
     const data = await ( await collection) .find().toArray();
     res.render('showdata',{data});
@@ -13,6 +16,7 @@ router.get ('/getspecificdata',async function(req,res,next){
     const querydata=req.query;
     const data = await ( await collection) .find({city:querydata.city,course:querydata.course}).toArray();
     res.render('showdata',{data});
+    
 });
     
 router.get ('/getdatabyparam/:course',async function(req,res,next){
