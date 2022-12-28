@@ -1,7 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 
@@ -17,12 +17,12 @@ const updateData= require('./routes/updateData.js');
 const deleteData=require('./routes/deleteData');
 const registrationForm=require('./routes/registrationForm');
 const login=require('./routes/login');
-const logout=require('./routes/logout');
+//const logout=require('./routes/logout');
 const signup=require('./routes/signup');
 //const bodyParser = require('body-parser');
 //const { body, validationResult } = require('express-validator');
   
-  
+ 
 
 
 
@@ -60,11 +60,12 @@ app.get('/registrationForm',registrationForm);
 app.post('/registrationForm',registrationForm);
 app.get('/login',login);
 app.post('/login',login);
-app.get('/logout',logout);
-app.post('/logout',logout);
+//app.get('/logout',logout);
+//app.post('/logout',logout);
 app.get('/signup',signup);
 app.post('/signup',signup);
 
+//app.use(cookieParser());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
