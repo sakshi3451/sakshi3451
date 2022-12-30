@@ -17,6 +17,7 @@ router.post('/login', async function(req, res, next) {
         return res.status(400).send("email not found");
 
         if(data.password === password){
+          res.cookie('login', 'login Cookies');
           res.render('afterLoginShowData', {data:data1});
           return;
         }else {
@@ -28,4 +29,3 @@ router.post('/login', async function(req, res, next) {
   }
 });
 module.exports = router;
-
