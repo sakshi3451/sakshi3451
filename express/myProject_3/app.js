@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 const cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const jwt = require('jsonwebtoken');
 
 
 var indexRouter = require('./routes/index');
@@ -62,9 +63,15 @@ app.post('/registrationForm',registrationForm);
 app.get('/login',login);
 app.post('/login',login);
 app.get('/logout',logout);
-//app.post('/logout',logout);
+app.post('/logout',logout);
 app.get('/signup',signup);
 app.post('/signup',signup);
+
+
+app.use('/', function(req, res){
+  res.cookie('name', 'cookies sample', {maxAge: 100000});
+});
+
 
 //app.use(cookieParser());
 

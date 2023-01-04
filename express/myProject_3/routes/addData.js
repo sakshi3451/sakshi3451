@@ -4,7 +4,15 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/openForm',  function(req, res, next) {
-  res.render('showForm');
+  console.log('Cookies:', req.cookies);
+    let loginStatus = false;
+    if(req.cookies !== null || req.cookies !== undefined){
+        loginStatus = true;
+        res.render('showForm', {loginStatus:loginStatus});
+    }else{
+        res.redirect('/login');
+    }
+  //res.render('showForm');
 });
 
 router.post('/addNewData', async function(req, res, next) {

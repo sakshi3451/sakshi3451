@@ -2,11 +2,27 @@ var express = require('express');
 const collection = require( '../utils/mongoconnection').connection();
 var router = express.Router();
 router.get ('/getData',async function(req,res,next){
-   // res.cookie('SampleCookie', 'value is express');
-  //  res.cookie('cookie1','sakshi')
-   // res.cookie('SampleCookie', 'value is express', {maxAge: 360000});
-  //  res.clearCookie('cookie1');
-   //  res.send('test');
+
+    console.log('Cookies:', JSON.stringify(req.cookies));
+    let loginStatus = false;
+    if(Object.keys(req.cookies).length !==0){
+        loginStatus = true;
+        const data = await (await collection).find().toArray();
+        res.render('showData', { data, loginStatus });
+    }else{
+        res.redirect('/loginPage');
+    }
+});
+module.exports=router  
+    
+
+
+
+ /*console.log('Cookies:', req.cookies);
+ let loginStatus = false;
+ if(req.cookies !== null || req.cookies !== undefined){
+ loginStatus = true;
+  }   
     const data = await ( await collection) .find().toArray();
     res.render('showdata',{data});
 
@@ -31,13 +47,12 @@ router.get ('/getdatabyparam/:name/:city',async function(req,res,next){
     res.render('showdata',{data});
 });
             
-    
-            router.post('/addData',async function(req,res,next){
-                const posteddata=req.body;
-                    const insertResult = await ( await collection) .insertOne(posteddata);
-                    const data = await ( await collection) .find().toArray();
-                    res.render('showdata',{data});
-                });
+router.post('/addData',async function(req,res,next){
+  const posteddata=req.body;
+const insertResult = await ( await collection) .insertOne(posteddata);
+  const data = await ( await collection) .find().toArray();
+ res.render('showdata',{data});
+  });
                 
           
 router.put('/updateData',async function(req,res,next){
@@ -65,7 +80,7 @@ router.put('/updateData',async function(req,res,next){
                 res.status(500).send('some error is delete');
             }
                         });
-                    module.exports=router;
+                    module.exports=router  */
     
     
     

@@ -6,6 +6,11 @@ var router = express.Router();
 router.get('/getDataToBeUpdated', async function(req, res, next) {
     const name = req.query.update;
     const data = await (await collection).findOne({name:name});
+    console.log('Cookies:', req.cookies);
+    let loginStatus = false;
+    if(req.cookies !== null || req.cookies !== undefined){
+        loginStatus = true;
+    }
     res.render('showUpdateForm',{dataTobeUpdated:data});
 });
 

@@ -9,7 +9,13 @@ router.get('/deleteData', async function(req, res, next) {
     try{
     const deleteResult = await (await collection).deleteOne({name});
     const data = await (await collection).find().toArray();
-    res.render('showData', { data });
+    console.log('Cookies:', req.cookies);
+        let loginStatus = false;
+        if(req.cookies !== null || req.cookies !== undefined)
+        {
+            loginStatus = true;
+        }
+    res.render('showData', { data ,loginStatus });
     
     } catch(error){
         console.error(err);
