@@ -2,31 +2,27 @@ var express = require('express');
 const collection = require( '../utils/mongoconnection').connection();
 var router = express.Router();
 router.get ('/getData',async function(req,res,next){
-
-    console.log('Cookies:', JSON.stringify(req.cookies));
-    let loginStatus = false;
-    if(Object.keys(req.cookies).length !==0){
-        loginStatus = true;
-        const data = await (await collection).find().toArray();
-        res.render('showData', { data, loginStatus });
-    }else{
-        res.redirect('/loginPage');
-    }
-});
-module.exports=router  
+  const jwt = require('jsonwebtoken');
     
-
-
-
- /*console.log('Cookies:', req.cookies);
- let loginStatus = false;
- if(req.cookies !== null || req.cookies !== undefined){
- loginStatus = true;
-  }   
-    const data = await ( await collection) .find().toArray();
-    res.render('showdata',{data});
-
-});
+  //console.log(Object.keys(req.cookies).length);
+ console.log('Cookies:', JSON.stringify(req.cookies));
+  let loginStatus = false;
+  if(Object.keys(req.cookies).length !==0){
+  loginStatus = true;
+    
+    try{
+    const dataVerify = jwt.verify(req.cookies.loginCookie, 'nodejsExpressProject');
+  console.log("Verified Token:", dataVerify);
+     const data = await (await collection).find().toArray();
+    res.render('showData', { data, loginStatus });
+      }catch(err){
+      console.log(err);
+     return res.redirect('/login');
+            }
+        }else{
+            res.redirect('/login');
+        }
+    });
 
 router.get ('/getspecificdata',async function(req,res,next){
     const querydata=req.query;
@@ -80,7 +76,7 @@ router.put('/updateData',async function(req,res,next){
                 res.status(500).send('some error is delete');
             }
                         });
-                    module.exports=router  */
+                    module.exports=router  
     
     
     
