@@ -11,7 +11,6 @@ var usersRouter = require('./routes/users');
 const mobileRouter=require('./routes/mobile');
 const shoesRouter=require('./routes/shoes');
 const dressesRouter=require('./routes/dresses');
-const booksRouter=require('./routes/books');
 const mongooperations =require('./routes/mongooperations');
 const addData= require('./routes/addData.js');
 const updateData= require('./routes/updateData.js');
@@ -23,12 +22,6 @@ const logout = require('./routes/logout.js');
 const signup=require('./routes/signup');
 //const bodyParser = require('body-parser');
 //const { body, validationResult } = require('express-validator');
-  
- 
-
-
-
-
 var app = express();
 
 // view engine setup
@@ -46,7 +39,6 @@ app.use('/users', usersRouter);
 app.get('/mobile',mobileRouter);
 app.get('/shoes',shoesRouter);
 app.get('/dresses',dressesRouter);
-app.get('/books',booksRouter);
 app.get('/getdata',mongooperations);
 app.get('/getdatabyparam/:name/:city',mongooperations);
 app.get('/getspecificdata',mongooperations);

@@ -1,3 +1,4 @@
+
 var express = require('express');
 const collection = require( '../utils/mongoconnection').connection();
 var router = express.Router();
@@ -62,7 +63,6 @@ router.get('/openForm',  function(req, res, next) {
     }
   //res.render('showForm');
 });
-
 router.post('/addNewData', async function(req, res, next) {
     const posteddata=req.body
     try{
@@ -77,5 +77,4 @@ res.status(500).send('some error in insertion');
 }
     });
   
-
 module.exports = router;*/

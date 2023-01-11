@@ -47,19 +47,36 @@ button {
 <body>    
     <center> <h1> Login Form </h1> </center>   
     <form action="/login" method="POST">
-        <div class="container">   
-            <label>email : </label>   
-            <input type="email" placeholder="Enter Username" name="email" required>  
-            <label>Password : </label>   
-            <input type="password" placeholder="Enter Password" name="password" required>  
-            <button type="submit">Login</button> 
-            <button type="submit">Admin Login</button>   
-            <input type="checkbox" checked="checked"> Remember me   
-            <button type="button" class="cancelbtn"> Cancel</button>   
+        <div class="container">
         
-
-            Forgot <a href="#"> password? </a>   
-        </div>   
-    </form>     
-</body>     
-</html>  
+  
+        
+              <% if (error === "Incorrect credentials") { %>
+               <p> Incorrect Credentials, Please give correct Credentials</p>
+              <% } %>
+                <label for="email">EmailId</label>
+                <input type="email" placeholder="Enter Your Email" name="email" id="email" required><br><br>
+        
+                <label for="Password">Password</label>
+                <input type="Password" placeholder="Enter Password" name="Password" id="Password" required>
+               <!-- <div class="error-message">Password is a required field.</div><br>-->
+                <p>Please select Login Type:</p>
+        
+                <input type="radio" id="user" name="loginType" value="user">
+                <label for="user">User</label>
+                <input type="radio" id="admin" name="loginType" value="admin">
+                <label for="admin">Admin</label><br>
+        
+                <button type="submit">Login</button><br><br>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me<br><br>
+                </label>
+            </div>
+          </form>
+          <form action="/">
+            <div class="container" style="background-color:#f1f1f1">
+                <a href="/"><button type="button" class="cancelbtn">Cancel</button></a>
+        
+            </div>
+          </form>           
+          
