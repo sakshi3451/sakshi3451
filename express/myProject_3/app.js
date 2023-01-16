@@ -18,6 +18,8 @@ const deleteData=require('./routes/deleteData');
 const registrationForm=require('./routes/registrationForm');
 const login=require('./routes/login');
 const logout = require('./routes/logout.js'); 
+const admin = require('./routes/admin');
+
 
 const signup=require('./routes/signup');
 //const bodyParser = require('body-parser');
@@ -58,6 +60,9 @@ app.get('/logout',logout);
 app.post('/logout',logout);
 app.get('/signup',signup);
 app.post('/signup',signup);
+app.get('/welcomeAdmin', admin);
+app.post('/admin', admin);
+
 
 
 app.use('/', function(req, res){
