@@ -1,0 +1,43 @@
+
+<head>
+  <h1 >WELCOME BACK</h1>
+
+  </head>
+<style>
+    table, th, td {
+      border: 1px solid rgb(138, 12, 12);
+      border-collapse: collapse;
+    }
+    th, td {
+      background-color: #96D4D4;
+    }
+</style>
+
+<form method="GET" id="form" action="/getData">
+  
+  <table>
+  
+    <tr>
+       <th style="color:hsl(234, 100%, 50%)">ClientID</th>
+       <th>Lastname</th>
+       <th>Firstname</th>
+       <th>Address</th>
+       <th>City</th>
+       
+    </tr>
+ 
+    <% for (let i = 0; i < data.length; i++) { %>
+     <tr>
+       <td style="color:rgb(162, 0, 255)"><%= data[i].ClientID %></td>
+       <td><%= data[i].Lastname%></td>
+       <td><%= data[i].Firstname %></td>
+       <td><%= data[i].Address %></td>
+       <td><%= data[i].City %></td>
+       
+       
+    <% } %>
+    </tr>
+     </table>
+</form>
+<a style="background-color:hwb(126 12% 0%);"href="/login">login for users </a>  <br>
+ 
